@@ -1,5 +1,3 @@
-//try to see if I need to import the Math library later
-
 public class Polynomial {
 	double[] coefficients;
 
@@ -33,8 +31,17 @@ public class Polynomial {
 	}
 	
 	public double evaluate(double x_value) {
+        double solution = 0;
 		for (int i = 0; i < coefficients.length; i++) {
-			
+			solution += coefficients[i]*(Math.pow(x_value, i));
 		}
+        return solution;
 	}
+
+    public boolean hasRoot(double potential_root) {
+        if (evaluate(potential_root) == 0) {
+            return true;
+        }
+        return false;
+    }
 }
