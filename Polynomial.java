@@ -1,30 +1,37 @@
+import java.util.Arrays;
+
 public class Polynomial {
 	double[] coefficients;
 
 	public Polynomial() {
-		coefficients = [0];
+		coefficients = new double[] {0};
 	}
 
 	public Polynomial(double[] inputPolynomial) {
-		//this.inputPolynomial = coefficients - cheryl answer
-		
-		//double check if either of these work
 		coefficients = inputPolynomial.clone();
 	}
 	
-	public double add(Polynomial another_polynomial) {
+	public Polynomial add(Polynomial another_polynomial) {
 		int length1 = coefficients.length;
-		int length2 = another_polynomial.length;
+		int length2 = another_polynomial.coefficients.length;
 		
 		//take the minimum of the 2 lengths cuz we only need the shorter one to run 
 		//the for loop
-		int shorter_length = min(length1, length2);
+		int shorter_length = Math.min(length1, length2);
 		
-		//also check if this works
-		double[] sum_polynomial = new Polynomial();
+		Polynomial sum_polynomial = new Polynomial();
+
+		if (length1 == shorter_length)
+		{
+			sum_polynomial = new Polynomial(another_polynomial.coefficients);
+		}
+		else
+		{
+			sum_polynomial = new Polynomial(coefficients);
+		}
 		
 		for (int i = 0; i < shorter_length; i++){
-			sum_polynomial[i] = coefficients[i] + another_polynomial[i];
+			sum_polynomial.coefficients[i] = coefficients[i] + another_polynomial.coefficients[i];
 		}
 		
 		return sum_polynomial;
