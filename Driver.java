@@ -45,6 +45,6 @@ public class Driver {
 		int[] test_exponents = new int[] {2, 5, 0};
 		Polynomial somePolynomial = new Polynomial(test_coefficents, test_exponents);
 		System.out.println("Here is where we save our polynomial to a file");
-		somePolynomial.saveToFile("newPolynomial");
+		somePolynomial.saveToFile("newPolynomial.txt");
 	}
 }
