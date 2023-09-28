@@ -247,46 +247,6 @@ public class Polynomial {
 		
 		//calculate total length of the product polynomial (can remove redundancy later)
 		int product_length = length1 + length2 + 2;
-		
-		// //declare some arrays to be the sorted versions of our originals
-		// double[] caller_sorted_coefficients = coefficients.clone();
-		// int[] caller_sorted_exponents = exponents.clone();
-
-		// double[] input_sorted_coefficients = inputPolynomial.coefficients.clone();
-		// int[] input_sorted_exponents = inputPolynomial.exponents.clone();
-
-		// //sort the exponents, but not the coefficients 
-		// Arrays.sort(caller_sorted_exponents);
-		// Arrays.sort(input_sorted_exponents);
-
-		// //for loop to line the caller coefficients up with their exponents
-		// for (int i = 0; i < length1; i++){
-		// 	//ints to help sort
-		// 	int original_caller_exponent_index = 0;
-		// 	for(int j = 0; j < length1; j++){
-		// 		if (caller_sorted_exponents[i] == exponents[j]){
-		// 			original_caller_exponent_index = j;
-		// 		}
-		// 	}
-		// 	caller_sorted_coefficients[i] = coefficients[original_caller_exponent_index];
-		// }
-
-		// //for loop to line the input coefficients up with their exponents
-		// for (int i = 0; i < length2; i++){
-		// 	//ints to help sort
-		// 	int original_input_exponent_index = 0;
-		// 	for(int j = 0; j < length2; j++){
-		// 		if (input_sorted_exponents[i] == inputPolynomial.exponents[j]){
-		// 			original_input_exponent_index = j;
-		// 		}
-		// 	}
-		// 	input_sorted_coefficients[i] = inputPolynomial.coefficients[original_input_exponent_index];
-		// }
-
-		// System.out.println(Arrays.toString(caller_sorted_coefficients));
-		// System.out.println(Arrays.toString(caller_sorted_exponents));
-		// System.out.println(Arrays.toString(input_sorted_coefficients));
-		// System.out.println(Arrays.toString(input_sorted_exponents));
 
 		//declare empty arrays to use for the product polynomial
 		double[] product_coefficients = new double[product_length];

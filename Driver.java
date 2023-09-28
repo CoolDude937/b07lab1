@@ -42,9 +42,9 @@ public class Driver {
 
 		//test file writer
 		double[] test_coefficents = new double[] {4, -2, 5};
-		int[] test_exponents = new int[] {2, 5, 0};
+		int[] test_exponents = new int[] {2, 4, 0};
 		Polynomial somePolynomial = new Polynomial(test_coefficents, test_exponents);
-		System.out.println("Here is where we save our polynomial to a file");
+		System.out.println("Here is where we save our polynomial to a file.\n I guess take a peek at the new text file that just got created?");
 		somePolynomial.saveToFile("newPolynomial.txt");
 	}
 }
