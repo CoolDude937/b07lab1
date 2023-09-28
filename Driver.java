@@ -14,17 +14,24 @@ public class Driver {
 		double [] c1 = {5, 6, 4};
 		int [] e1 = {3, 0, 2};
 		Polynomial p1 = new Polynomial(c1, e1);
-		double [] c2 = {-2, -9, 3};
-		int [] e2 = {1, 4, 7};
+		double [] c2 = {-2, -9};
+		int [] e2 = {4, 3};
 		Polynomial p2 = new Polynomial(c2, e2);
 		Polynomial s = p1.add(p2);
-		System.out.println(Arrays.toString(s.coefficients));
-		System.out.println(Arrays.toString(s.exponents));
-		System.out.println("s(0.1) = " + s.evaluate(0.1));
-		if(s.hasRoot(1))
-		System.out.println("1 is a root of s");
-		else
-		System.out.println("1 is not a root of s");
+		//check for 0 polynomial
+		if (s == null){
+			System.out.println("guess that sum was the 0 polynomial. it is now a null.");
+			System.out.println(s);
+		}
+		else {
+			System.out.println(Arrays.toString(s.coefficients));
+			System.out.println(Arrays.toString(s.exponents));
+			System.out.println("s(0.1) = " + s.evaluate(0.1));
+			if(s.hasRoot(1))
+			System.out.println("1 is a root of s");
+			else
+			System.out.println("1 is not a root of s");
+		}
 
 		//test multiply
 		Polynomial productPolynomial = p1.multiply(p2);
@@ -33,7 +40,6 @@ public class Driver {
 		System.out.println(Arrays.toString(productPolynomial.exponents));
 
 		//test file constructor
-		System.out.println("Here is where we print out the polynomial from a file");
 		File text = new File("C:\\Users\\mazhi\\OneDrive\\Documents\\GitHub\\b07lab1\\textPolynomial.txt");
 		Polynomial polynomial_fromfile = new Polynomial(text);
 		System.out.println("Here is the polynomial from the file:");

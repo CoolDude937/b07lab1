@@ -201,20 +201,21 @@ public class Polynomial {
 			// System.out.println(Arrays.toString(sum_coefficients));
 			// System.out.println(Arrays.toString(sum_exponents));
 			for (int j = 0; j < max_length; j++){
-				if ((sum_exponents[j] == 0) && (sum_coefficients[j] == 0.0)){
-					int[] temp = sum_exponents.clone();
-					temp = removeElement(temp, j);
-					sum_exponents = temp.clone();
-				}
 				if (sum_coefficients[j] == 0.0){
 					sum_coefficients = removeElement(sum_coefficients, j);
+					sum_exponents = removeElement(sum_exponents, j);
 					max_length--;
 				}
 			}
-			//System.out.println(max_length);
+			//System.out.println(Arrays.toString(sum_exponents));
 		}
 		// System.out.println(Arrays.toString(sum_coefficients));
 		// System.out.println(Arrays.toString(sum_exponents));
+
+		//but if the polynomial is the 0 polynomial, just return null.
+		if (sum_coefficients.length == 1 && sum_coefficients[0] == 0.0 || sum_exponents.length == 1 && sum_exponents[0] == 0){
+			return null;
+		}
 
 		//construct the polynomial and return
 		Polynomial sum_Polynomial = new Polynomial(sum_coefficients, sum_exponents);
@@ -282,7 +283,6 @@ public class Polynomial {
         BufferedReader reader = new BufferedReader(new FileReader(filePolynomial));
         String polynomial_as_a_String = reader.readLine();
 		String[] polynomial_as_an_Array = polynomial_as_a_String.split("");
-		System.out.println(Arrays.toString(polynomial_as_an_Array));
         for (int i = 0; i < polynomial_as_an_Array.length; i++){
 			if (isCoefficient(polynomial_as_an_Array, i)){
 				//check if its negative
